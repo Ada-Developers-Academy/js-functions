@@ -1,0 +1,8 @@
+#! /bin/bash
+
+if which node >/dev/null; then
+  echo 'You have node'
+  node -v
+else
+  echo 'you need to install node!'
+fi

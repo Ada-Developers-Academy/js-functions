@@ -24,5 +24,5 @@ var evens = filterArray(numbers, isEven);
 console.log(evens, ' should be ', [2, 4, 6, 234, 822]);
 
 var magic = filterArray([1,2,3,4,5,6,9,234, 822], isMagic);
-console.log(result, ' should be ', [3]);
+console.log(magic, ' should be ', [3]);
 

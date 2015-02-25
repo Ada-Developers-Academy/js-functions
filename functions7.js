@@ -34,19 +34,19 @@ function oddNumberHater(value, callback) {
 }
 
 asyncWaterfall(3, [add2, square], function(error, result) {
-  console.log('3, [add2, square] result');
+  console.log('\n3, [add2, square] result');
   console.log(error, 'should be null');
   console.log(result, 'should be 25');
 });
 
 asyncWaterfall(3, [add2, oddNumberHater, add2], function(error, result) {
-  console.log('3, [add2, oddNumberHater] result');
+  console.log('\n3, [add2, oddNumberHater] result');
   console.log(error, 'should be an Error "No odd numbers allowed"');
   console.log(result, 'should be undefined');
 });
 
 asyncWaterfall(3, [add2, add2, square], function(error, result) {
-  console.log('3, [add2, add2, square] result');
+  console.log('\n3, [add2, add2, square] result');
   console.log(error, 'should be null');
   console.log(result, 'should be 49');
 });
