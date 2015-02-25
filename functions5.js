@@ -11,17 +11,7 @@
 // This frees up the single execution point to go do other things.
 //
 // One way to do this is with callbacks
-
-// Here's a very contrived example to show the conventions for invoking callbacks:
-function theMagicNumber(number, callback) {
-  if (number === 3) {
-    callback(null, 'this is the magic number');
-  }
-  else {
-    callback(new Error('not the magic number'));
-  }
-}
-
+//
 // There are other ways to handle async execution:
 //  - promises (like in angularjs),
 //  - events (like in the browser).
@@ -31,12 +21,26 @@ function theMagicNumber(number, callback) {
 // In the node.js core libraries, and in many other javascript libraries, callbacks follow the following convention:
 
 // function(error, result) {}
-// if an error occurs, the first argument will be set to an Error object, otherwise the second argument will be set.
 
-// Callbacks are a lot like  the "return" statment:
-// - Gives the result to the function that called
+// Important rules for callbacks:
+//
 // - Must be called once and only once
+// - If the first argument is set, it must be an Error
 
+// Here's a very contrived example to show the conventions for invoking callbacks:
+function theMagicNumber(number, callback) {
+  if (number === 3) {
+    callback(null, number + ' is the magic number');
+  }
+  else {
+    callback(new Error( number + ' is not the magic number'));
+  }
+}
+
+theMagicNumber(3, console.log);
+theMagicNumber(4, console.log);
+
+// An actually aynchronous example
 function waitAWhile(number, callback) {
   // random delay up to 5 seconds
   var delay = Math.random() * 5000;

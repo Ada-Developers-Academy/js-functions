@@ -25,12 +25,18 @@ console.log('fibonacci(11)', fibonacci(11)); // => 89
 // this is where a lot of the fun stuff happens
 // it is also very confusing at first
 // don't worry if this seems crazy at first
-function callAnotherFunction(otherFunction) {
-  return otherFunction();
+function callAnotherFunction(f) {
+  f();
 }
 
 // what will happen?
 callAnotherFunction(function() {
   console.log('BOOM');
 });
+
+function bang() {
+  console.log('BANG');
+}
+
+callAnotherFunction(bang);
 

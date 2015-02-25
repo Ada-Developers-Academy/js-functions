@@ -3,7 +3,8 @@
 function doubleEachElement(array) {
   var result = [];
   for (var i = 0; i < array.length; i++) {
-    result[i] = array[i] + array[i];
+    //result[i] = array[i] + array[i];
+    result.push(array[i] + array[i]);
   }
   return result;
 }

@@ -1,13 +1,13 @@
-// functions can be declared like this:
-function hello(name) {
-  console.log('hello ' + name);
-}
-
 // variables can refer to functions
 var greet = hello;
 
 greet('Ada'); // => hello Ada
 hello('Ada'); // => hello Ada
+
+// functions can be declared like this:
+function hello(name) {
+  console.log('hello ' + name);
+}
 
 console.log('Are references to the same function equal?', greet === hello);
 

@@ -1,9 +1,12 @@
 //
 // Now for an asynchronous waterfall...
 //
-// It takes an initial value, an array of functions, and a callback which it should call at the end
+// It takes three arguments:
+// 1. an initial value,
+// 2. an array of functions, and
+// 3. a callback which it should call at the end with the result
 //
-// If any of the functions yields an error, it should stop processing and call the
+// If any of the functions yields an error, it should stop processing and call the callback with the error
 //
 // each function takes a value and
 //
@@ -33,14 +36,20 @@ function oddNumberHater(value, callback) {
   }
 }
 
+asyncWaterfall(7, [add2], function(error, result) {
+  console.log('\n7, [add2] result');
+  console.log(error, 'should be null');
+  console.log(result, 'should be 9');
+});
+
 asyncWaterfall(3, [add2, square], function(error, result) {
   console.log('\n3, [add2, square] result');
   console.log(error, 'should be null');
   console.log(result, 'should be 25');
 });
 
-asyncWaterfall(3, [add2, oddNumberHater, add2], function(error, result) {
-  console.log('\n3, [add2, oddNumberHater] result');
+asyncWaterfall(13, [add2, oddNumberHater, add2], function(error, result) {
+  console.log('\n13, [add2, oddNumberHater] result');
   console.log(error, 'should be an Error "No odd numbers allowed"');
   console.log(result, 'should be undefined');
 });

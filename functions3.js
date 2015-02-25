@@ -15,7 +15,7 @@ function isEven(number) {
 }
 
 function isMagic(number) {
-  return number % 2 === 0;
+  return number === 3;
 }
 
 var numbers = [1,2,3,4,5,6,9,234, 822];
